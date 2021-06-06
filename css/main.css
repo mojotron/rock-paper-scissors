@@ -1,0 +1,72 @@
+:root {
+  font-family: "Stint Ultra Condensed", monospace;
+  font-size: 16px;
+  --dark-color: rgb(54, 54, 58);
+  --light-color: rgb(209, 209, 212);
+}
+.main-wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+/* general */
+.game-display,
+.score-display,
+.game-log,
+.high-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* GAME DISPLAY SECTION */
+.game-display {
+  background: var(--light-color);
+  color: var(--dark-color);
+  width: 80%;
+}
+.game-display-wrapper {
+  width: 100%;
+}
+.game-display h1 {
+  font-size: 3.5rem;
+}
+.main-game-display,
+.player-commands {
+  width: 70%;
+  height: 30vh;
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+/* SCORE DISPLAY SECTION */
+.score-display {
+  background: var(--dark-color);
+  color: var(--light-color);
+  width: 20%;
+}
+.score-display h2,
+.score-display p {
+  text-align: center;
+}
+.score-display h2 {
+  font-size: 3rem;
+}
+.score-display p {
+  font-size: 2rem;
+}
+.score-display p span {
+  font-size: 3rem;
+}
+.game-log,
+.high-score {
+  width: 100%;
+}
+.game-log-container,
+.high-score-container {
+  width: 90%;
+  height: 30vh;
+  background: var(--light-color);
+  color: var(--dark-color);
+  border-radius: 3px;
+}
