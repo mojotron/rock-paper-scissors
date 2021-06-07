@@ -11,7 +11,8 @@
   display: flex;
 }
 /* general */
-.game-display {
+.game-display,
+.player-commands {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,10 +31,41 @@
 }
 .main-game-display,
 .player-commands {
-  width: 70%;
-  height: 30vh;
+  width: 50%;
+  height: 25vh;
   background: var(--dark-color);
   color: var(--light-color);
+}
+/* PLAYER COMMANDS */
+.player-commands {
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10px;
+  background: var(--light-color);
+}
+.rock,
+.paper,
+.scissors {
+  box-sizing: border-box;
+  height: 100%;
+  width: 25%;
+  color: var(--light-color);
+  background-size: cover;
+}
+.rock:hover,
+.paper:hover,
+.scissors:hover {
+  cursor: pointer;
+  border: 1px solid gold;
+}
+.rock {
+  background-image: url("../img/rock.png");
+}
+.paper {
+  background-image: url("../img/paper.png");
+}
+.scissors {
+  background-image: url("../img/scissors.png");
 }
 .scoreboard {
   text-align: center;
@@ -43,6 +75,8 @@
 }
 .scoreboard span {
   font-size: 3rem;
+  position: relative;
+  top: 5px;
 }
 .scoreboard p {
   font-size: 2rem;

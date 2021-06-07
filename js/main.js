@@ -39,3 +39,11 @@ while (userScore < 3 && computerScore < 3) {
   updateScore(roundWinner(usr, ai));
   console.log(`${usr} ${userScore} - ${computerScore} ${ai}`);
 }
+
+/* test */
+const x = document.querySelectorAll(".player-input");
+for (let i of x) {
+  i.addEventListener("click", function (e) {
+    alert(e.target.dataset.game);
+  });
+}
