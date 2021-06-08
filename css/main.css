@@ -12,7 +12,8 @@
 }
 /* general */
 .game-display,
-.player-commands {
+.player-commands,
+.main-game-display {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,18 +29,39 @@
 
 .game-display h1 {
   font-size: 3.5rem;
+  position: relative;
+  bottom: 20px;
 }
 .main-game-display,
 .player-commands {
   width: 50%;
   height: 25vh;
-  background: var(--dark-color);
-  color: var(--light-color);
-}
-/* PLAYER COMMANDS */
-.player-commands {
+  background: var(--light-color);
   flex-direction: row;
   justify-content: space-around;
+}
+/* MAIN DISPLAY */
+.player-pick,
+.computer-pick,
+.rock,
+.paper,
+.scissors {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.player-pick,
+.computer-pick {
+  height: 100%;
+  width: 30%;
+}
+/* PLAYER COMMANDS */
+.main-game-display {
+  height: 30vh;
+}
+.player-commands {
   margin-top: 10px;
   background: var(--light-color);
 }
@@ -50,13 +72,12 @@
   height: 100%;
   width: 25%;
   color: var(--light-color);
-  background-size: cover;
 }
 .rock:hover,
 .paper:hover,
 .scissors:hover {
   cursor: pointer;
-  border: 1px solid gold;
+  box-shadow: 3px 3px 10px 3px var(--dark-color);
 }
 .rock {
   background-image: url("../img/rock.png");

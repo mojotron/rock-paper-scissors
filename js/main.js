@@ -40,10 +40,12 @@ while (userScore < 3 && computerScore < 3) {
   console.log(`${usr} ${userScore} - ${computerScore} ${ai}`);
 }
 
-/* test */
+/* PLAYER INPUT*/
 const x = document.querySelectorAll(".player-input");
+const y = document.querySelector(".player-pick");
 for (let i of x) {
   i.addEventListener("click", function (e) {
-    alert(e.target.dataset.game);
+    let playerChoice = e.target.dataset.choice;
+    y.style.backgroundImage = `url('img/${playerChoice}.png')`;
   });
 }
