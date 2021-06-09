@@ -13,7 +13,8 @@
 /* general */
 .game-display,
 .player-commands,
-.main-game-display {
+.main-game-display,
+.game-over {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,6 +73,7 @@
   height: 100%;
   width: 25%;
   color: var(--light-color);
+  border-radius: 3px;
 }
 .rock:hover,
 .paper:hover,
@@ -90,9 +92,11 @@
 }
 .scoreboard {
   text-align: center;
+  margin-top: 20px;
 }
 .scoreboard h2 {
   font-size: 2.5rem;
+  user-select: none;
 }
 .scoreboard span {
   font-size: 3rem;
@@ -103,4 +107,42 @@
   font-size: 2rem;
   position: relative;
   left: 14px;
+}
+
+/* GAME OVER MODAL */
+.game-over {
+  color: var(--dark-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(219, 219, 232, 0.8);
+}
+.game-over p {
+  font-size: 2.8rem;
+}
+.game-over h2 {
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+.game-over .new-game {
+  width: 10rem;
+  height: 5rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-family: "Stint Ultra Condensed", monospace;
+  border: 2px solid var(--light-color);
+  background: var(--dark-color);
+  color: var(--light-color);
+}
+.game-over .new-game:hover {
+  border-color: var(--dark-color);
+  background: var(--light-color);
+  color: var(--dark-color);
+  box-shadow: 3px 3px 10px 3px var(--dark-color);
+}
+
+.hidden {
+  visibility: hidden;
 }

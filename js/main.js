@@ -10,6 +10,10 @@ const playerDisplay = document.querySelector(".player-pick");
 const computerDisplay = document.querySelector(".computer-pick");
 const playerScoreDisplay = document.querySelector("#player-score");
 const computerScoreDisplay = document.querySelector("#computer-score");
+// DOM Selectors for modal window
+const gameOverModal = document.querySelector(".game-over");
+const winnerMsg = document.querySelector(".winner-msg");
+const newGameBtn = document.querySelector(".new-game");
 // GAME LOGIC FUNCTIONS
 // Random generated computer choice
 const computerChoice = function () {
@@ -45,15 +49,15 @@ const updateScoreboard = function () {
 };
 // Check for end game condition, first player to get 3 wins
 const checkEndGame = function () {
-  //TODO implemet modal window instead of alert
   if (playerScore === 3) {
-    alert("GZ! YOU WON!!!!");
-    return 1;
+    winnerMsg.textContent = "You Won!!! 🏆";
+    return true;
   } else if (computerScore === 3) {
-    alert("Sorry You LOST!");
-    return 1;
+    winnerMsg.textContent = "You Loose!!! 💩";
+    return true;
+  } else {
+    return false;
   }
-  return 0;
 };
 // Reset game state
 const resetGame = function () {
@@ -62,7 +66,9 @@ const resetGame = function () {
   updateScoreboard();
   playerDisplay.style.backgroundImage =
     computerDisplay.style.backgroundImage = `none`;
+  gameOverModal.classList.add("hidden");
 };
+newGameBtn.addEventListener("click", resetGame);
 // GAME LOGIC
 const gameFlow = function (player, computer) {
   // 1. Decide round winner
@@ -75,7 +81,9 @@ const gameFlow = function (player, computer) {
   updateScoreboard();
   // 4. Check end game condition and reset state if game over
   const temp = checkEndGame();
-  if (temp) resetGame();
+  if (temp) {
+    gameOverModal.classList.remove("hidden");
+  }
 };
 // Add event handler to every player choice
 for (let node of playerChoices) {
