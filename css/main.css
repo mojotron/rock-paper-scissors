@@ -29,7 +29,7 @@
 }
 
 .game-display h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
   position: relative;
   bottom: 20px;
 }
@@ -52,11 +52,17 @@
   background-position-x: center;
   background-position-y: center;
 }
-
 .player-pick,
 .computer-pick {
   height: 100%;
   width: 30%;
+  border-radius: 5px;
+}
+.winner-display-shadow {
+  box-shadow: 2px 2px 25px 1px rgb(33, 206, 17);
+}
+.looser-display-shadow {
+  box-shadow: 2px 2px 25px 1px rgb(211, 62, 25);
 }
 /* PLAYER COMMANDS */
 .main-game-display {
@@ -71,7 +77,7 @@
 .scissors {
   box-sizing: border-box;
   height: 100%;
-  width: 25%;
+  width: 25vh;
   color: var(--light-color);
   border-radius: 3px;
 }
@@ -79,7 +85,7 @@
 .paper:hover,
 .scissors:hover {
   cursor: pointer;
-  box-shadow: 3px 3px 10px 3px var(--dark-color);
+  box-shadow: 1px 1px 20px 1px var(--dark-color);
 }
 .rock {
   background-image: url("../img/rock.png");
@@ -95,16 +101,16 @@
   margin-top: 20px;
 }
 .scoreboard h2 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   user-select: none;
 }
 .scoreboard span {
-  font-size: 3rem;
+  font-size: 3.5rem;
   position: relative;
   top: 5px;
 }
 .scoreboard p {
-  font-size: 2rem;
+  font-size: 3rem;
   position: relative;
   left: 14px;
 }
@@ -142,7 +148,6 @@
   color: var(--dark-color);
   box-shadow: 3px 3px 10px 3px var(--dark-color);
 }
-
 .hidden {
   visibility: hidden;
 }

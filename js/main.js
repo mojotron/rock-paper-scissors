@@ -36,6 +36,28 @@ const roundWinner = function (userInput, computerInput) {
     return -1;
   }
 };
+const removeWinLoseShadowEffect = function () {
+  if (playerDisplay.classList.contains("winner-display-shadow"))
+    playerDisplay.classList.remove("winner-display-shadow");
+  if (playerDisplay.classList.contains("looser-display-shadow"))
+    playerDisplay.classList.remove("looser-display-shadow");
+  if (computerDisplay.classList.contains("winner-display-shadow"))
+    computerDisplay.classList.remove("winner-display-shadow");
+  if (computerDisplay.classList.contains("looser-display-shadow"))
+    computerDisplay.classList.remove("looser-display-shadow");
+};
+// Give box shadow effect to display elements
+const addWinLoseShadowEffect = function (winner) {
+  removeWinLoseShadowEffect();
+  if (winner === 1) {
+    playerDisplay.classList.add("winner-display-shadow");
+    computerDisplay.classList.add("looser-display-shadow");
+  } else if (winner == -1) {
+    playerDisplay.classList.add("looser-display-shadow");
+    computerDisplay.classList.add("winner-display-shadow");
+  }
+  return null;
+};
 // Update global variable depending on winner
 const updateScore = function (input) {
   if (input === 1) playerScore++;
@@ -64,6 +86,7 @@ const resetGame = function () {
   playerScore = computerScore = 0;
   playerPick = computerPick = undefined;
   updateScoreboard();
+  removeWinLoseShadowEffect();
   playerDisplay.style.backgroundImage =
     computerDisplay.style.backgroundImage = `none`;
   gameOverModal.classList.add("hidden");
@@ -73,6 +96,7 @@ newGameBtn.addEventListener("click", resetGame);
 const gameFlow = function (player, computer) {
   // 1. Decide round winner
   const round = roundWinner(player, computer);
+  addWinLoseShadowEffect(round);
   // 2. Update DOM display containers
   playerDisplay.style.backgroundImage = `url('img/${player}.png')`;
   computerDisplay.style.backgroundImage = `url('img/${computer}.png')`;
@@ -81,6 +105,7 @@ const gameFlow = function (player, computer) {
   updateScoreboard();
   // 4. Check end game condition and reset state if game over
   const temp = checkEndGame();
+
   if (temp) {
     gameOverModal.classList.remove("hidden");
   }
