@@ -1,9 +1,8 @@
 :root {
   font-family: "Stint Ultra Condensed", monospace;
   font-size: 16px;
-  --dark-color: rgb(39, 39, 41);
-  --light-color: rgb(209, 209, 212);
-  --contrast-color: rgb(56, 175, 41);
+  --dark-color: #323832;
+  --light-color: #fcf6f5ff;
 }
 .main-wrapper {
   height: 100vh;
@@ -27,16 +26,21 @@
   color: var(--dark-color);
   width: 100%;
 }
-
 .game-display h1 {
   font-size: 4rem;
   position: relative;
   bottom: 20px;
 }
+.game-display p {
+  font-size: 1.8rem;
+}
+.main-game-display {
+  height: 25vh;
+  margin: 1rem 0;
+}
 .main-game-display,
 .player-commands {
   width: 50%;
-  height: 25vh;
   background: var(--light-color);
   flex-direction: row;
   justify-content: space-around;
@@ -55,20 +59,21 @@
 .player-pick,
 .computer-pick {
   height: 100%;
-  width: 30%;
+  width: 25vh;
   border-radius: 5px;
 }
+.computer-pick {
+  transform: rotate(180deg);
+}
 .winner-display-shadow {
-  box-shadow: 2px 2px 25px 1px rgb(33, 206, 17);
+  box-shadow: 1px 1px 10px 8px rgb(65, 174, 43);
 }
 .looser-display-shadow {
-  box-shadow: 2px 2px 25px 1px rgb(211, 62, 25);
+  box-shadow: 1px 1px 10px 8px rgb(204, 52, 70);
 }
 /* PLAYER COMMANDS */
-.main-game-display {
-  height: 30vh;
-}
 .player-commands {
+  height: 20vh;
   margin-top: 10px;
   background: var(--light-color);
 }
@@ -77,15 +82,19 @@
 .scissors {
   box-sizing: border-box;
   height: 100%;
-  width: 25vh;
+  width: 20vh;
   color: var(--light-color);
   border-radius: 3px;
+  transform: rotate(-90deg);
 }
 .rock:hover,
 .paper:hover,
-.scissors:hover {
+.scissors:hover,
+.rock:active,
+.paper:active,
+.scissors:active {
   cursor: pointer;
-  box-shadow: 1px 1px 20px 1px var(--dark-color);
+  box-shadow: 1px 1px 4px 5px #787878;
 }
 .rock {
   background-image: url("../img/rock.png");
@@ -111,12 +120,11 @@
 }
 .scoreboard p {
   font-size: 3rem;
-  position: relative;
-  left: 14px;
 }
 
 /* GAME OVER MODAL */
 .game-over {
+  text-align: center;
   color: var(--dark-color);
   position: fixed;
   top: 0;
@@ -150,4 +158,22 @@
 }
 .hidden {
   visibility: hidden;
+}
+
+@media (max-width: 786px) {
+  .main-game-display,
+  .player-commands {
+    width: 90%;
+  }
+  .player-pick,
+  .computer-pick {
+    height: 40vw;
+    width: 40vw;
+  }
+  .rock,
+  .paper,
+  .scissors {
+    height: 25vw;
+    width: 25vw;
+  }
 }
