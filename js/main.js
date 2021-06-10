@@ -16,14 +16,14 @@ const winnerMsg = document.querySelector(".winner-msg");
 const newGameBtn = document.querySelector(".new-game");
 // GAME LOGIC FUNCTIONS
 // Random generated computer choice
-const computerChoice = function () {
+function computerChoice() {
   const number = Math.random();
   if (number > 0.66) return "rock";
   else if (number > 0.33) return "paper";
   else return "scissors";
-};
+}
 // Compare player and computer choice and declare winner
-const roundWinner = function (userInput, computerInput) {
+function roundWinner(userInput, computerInput) {
   if (userInput === computerInput) {
     return 0;
   } else if (
@@ -35,8 +35,8 @@ const roundWinner = function (userInput, computerInput) {
   } else {
     return -1;
   }
-};
-const removeWinLoseShadowEffect = function () {
+}
+function removeWinLoseShadowEffect() {
   if (playerDisplay.classList.contains("winner-display-shadow"))
     playerDisplay.classList.remove("winner-display-shadow");
   if (playerDisplay.classList.contains("looser-display-shadow"))
@@ -45,9 +45,9 @@ const removeWinLoseShadowEffect = function () {
     computerDisplay.classList.remove("winner-display-shadow");
   if (computerDisplay.classList.contains("looser-display-shadow"))
     computerDisplay.classList.remove("looser-display-shadow");
-};
-// Give box shadow effect to display elements
-const addWinLoseShadowEffect = function (winner) {
+}
+// Give box shadow effect to display elements winner green looser red
+function addWinLoseShadowEffect(winner) {
   removeWinLoseShadowEffect();
   if (winner === 1) {
     playerDisplay.classList.add("winner-display-shadow");
@@ -56,33 +56,31 @@ const addWinLoseShadowEffect = function (winner) {
     playerDisplay.classList.add("looser-display-shadow");
     computerDisplay.classList.add("winner-display-shadow");
   }
-  return null;
-};
+}
 // Update global variable depending on winner
-const updateScore = function (input) {
+function updateScore(input) {
   if (input === 1) playerScore++;
-  else if (input === -1) computerScore++;
-  else return null;
-};
-// Update scoreboard
-const updateScoreboard = function () {
+  if (input === -1) computerScore++;
+}
+// Update scoreboard text content
+function updateScoreboard() {
   playerScoreDisplay.textContent = playerScore;
   computerScoreDisplay.textContent = computerScore;
-};
+}
 // Check for end game condition, first player to get 3 wins
-const checkEndGame = function () {
+function checkEndGame() {
   if (playerScore === 3) {
-    winnerMsg.textContent = "You Won!!! 🏆";
+    winnerMsg.textContent = "🏆 You Won!!! 🏆";
     return true;
   } else if (computerScore === 3) {
-    winnerMsg.textContent = "You Loose!!! 💩";
+    winnerMsg.textContent = "💩 You Loose!!! 💩";
     return true;
   } else {
     return false;
   }
-};
+}
 // Reset game state
-const resetGame = function () {
+function resetGame() {
   playerScore = computerScore = 0;
   playerPick = computerPick = undefined;
   updateScoreboard();
@@ -90,10 +88,9 @@ const resetGame = function () {
   playerDisplay.style.backgroundImage =
     computerDisplay.style.backgroundImage = `none`;
   gameOverModal.classList.add("hidden");
-};
-newGameBtn.addEventListener("click", resetGame);
+}
 // GAME LOGIC
-const gameFlow = function (player, computer) {
+function gameFlow(player, computer) {
   // 1. Decide round winner
   const round = roundWinner(player, computer);
   addWinLoseShadowEffect(round);
@@ -105,14 +102,13 @@ const gameFlow = function (player, computer) {
   updateScoreboard();
   // 4. Check end game condition and reset state if game over
   const temp = checkEndGame();
-
-  if (temp) {
-    gameOverModal.classList.remove("hidden");
-  }
-};
+  if (temp) gameOverModal.classList.remove("hidden");
+}
 // Add event handler to every player choice
 for (let node of playerChoices) {
   node.addEventListener("click", function (e) {
     gameFlow(e.target.dataset.choice, computerChoice());
   });
 }
+//Modal window button event handler
+newGameBtn.addEventListener("click", resetGame);

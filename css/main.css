@@ -1,7 +1,7 @@
 :root {
   font-family: "Stint Ultra Condensed", monospace;
   font-size: 16px;
-  --dark-color: #323832;
+  --dark-color: #171817;
   --light-color: #fcf6f5ff;
 }
 .main-wrapper {
@@ -26,13 +26,22 @@
   color: var(--dark-color);
   width: 100%;
 }
+.game-display h1,
+.scoreboard h2,
+.scoreboard span,
+.game-over p {
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
 .game-display h1 {
   font-size: 4rem;
   position: relative;
   bottom: 20px;
 }
-.game-display p {
-  font-size: 1.8rem;
+.game-display .welcome-msg {
+  font-size: 1.9rem;
+  letter-spacing: 0.2rem;
 }
 .main-game-display {
   height: 25vh;
@@ -60,16 +69,16 @@
 .computer-pick {
   height: 100%;
   width: 25vh;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .computer-pick {
   transform: rotate(180deg);
 }
 .winner-display-shadow {
-  box-shadow: 1px 1px 10px 8px rgb(65, 174, 43);
+  box-shadow: 1px 1px 3px 4px rgb(65, 174, 43);
 }
 .looser-display-shadow {
-  box-shadow: 1px 1px 10px 8px rgb(204, 52, 70);
+  box-shadow: -1px -1px 3px 4px rgb(204, 52, 70);
 }
 /* PLAYER COMMANDS */
 .player-commands {
@@ -94,7 +103,7 @@
 .paper:active,
 .scissors:active {
   cursor: pointer;
-  box-shadow: 1px 1px 4px 5px #787878;
+  box-shadow: 1px 1px 4px 2px var(--dark-color);
 }
 .rock {
   background-image: url("../img/rock.png");
