@@ -182,11 +182,15 @@
   .computer-pick {
     height: 40vw;
     width: 40vw;
+    max-height: 175px;
+    max-width: 175px;
   }
   .rock,
   .paper,
   .scissors {
     height: 25vw;
     width: 25vw;
+    max-height: 100px;
+    max-width: 100px;
   }
 }
