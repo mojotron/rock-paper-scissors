@@ -170,6 +170,10 @@
 }
 
 @media (max-width: 786px) {
+  .game-display .welcome-msg {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  }
   .main-game-display,
   .player-commands {
     width: 90%;
