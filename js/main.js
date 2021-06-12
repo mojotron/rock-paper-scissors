@@ -36,6 +36,7 @@ function roundWinner(userInput, computerInput) {
     return -1;
   }
 }
+// Clean display elements from shadow effects
 function removeWinLoseShadowEffect() {
   if (playerDisplay.classList.contains("winner-display-shadow"))
     playerDisplay.classList.remove("winner-display-shadow");
